@@ -1,6 +1,7 @@
 package tutorial
 
 import scala.util.Random
+import scala.scalajs.js
 import scala.scalajs.js.JSApp
 import org.scalajs.jquery.jQuery
 
@@ -17,14 +18,16 @@ object Greeting extends JSApp {
   }
 
   def genTable(): Unit = {
-    jQuery("#data").empty()
-    User.genUsers().foreach { u =>
-      jQuery("#data").append(userRow(u))
-    }
+    jQuery("#data").fadeOut(100, "linear", callback = { (data: js.Any) =>
+      jQuery("#data").empty()
+      User.genUsers().foreach { u =>
+        jQuery("#data").append(userRow(u))
+      }
+      jQuery("#data").fadeIn(900) })
   }
 
   def addClickedMessage(): Unit = {
-    jQuery("body").append("<p>You clicked the button.</p>")
+//    jQuery("body").append("<p>You clicked the button.</p>")
     genTable()
   }
 
