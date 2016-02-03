@@ -1,10 +1,6 @@
 package tutorial
 
-import java.text.DecimalFormat
-import java.util.Locale
-
 import scala.scalajs.js.JSApp
-import org.scalajs.dom
 import org.scalajs.jquery.jQuery
 
 object Greeting extends JSApp {
