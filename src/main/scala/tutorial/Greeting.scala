@@ -13,7 +13,7 @@ object Greeting extends JSApp {
   def genTable(): Unit = {
     jQuery("#data").empty()
     val names = Array("Dan", "Bob", "Debbie", "Minnie", "Steve")
-    val lastnames = Random.shuffle(List("Smith","LeBeef","Archer","Mango","Dreth"))
+    val lastnames = Random.shuffle(Array("Smith","LeBeef","Archer","Mango","Dreth"))
 
     (0 until 5).foreach { x =>
 
