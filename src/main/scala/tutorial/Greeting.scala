@@ -19,17 +19,31 @@ object Greeting extends JSApp {
 
   // I shouldn't couple the fading out/in of the refreshing component with
   // the code that draws it.  This feels like a mix-in to me..
+//  def genTable(): Unit = {
+//    jQuery("#data").fadeOut(100, "linear", callback = { (data: js.Any) =>
+//      jQuery("#data").empty()
+//      User.genUsers().foreach { u =>
+//        jQuery("#data").append(userRow(u))
+//      }
+//      jQuery("#data").fadeIn(900) })
+//  }
+//  def genTable(): Unit = {
+//    jQuery("#data").fadeOut(100, "linear", callback = { (data: js.Any) =>
+//      jQuery("#data").empty()
+//      User.genUsers().foreach { u =>
+//        jQuery("#data").append(userRow(u))
+//      }
+//      jQuery("#data").fadeIn(900) })
+//  }
+
   def genTable(): Unit = {
-    jQuery("#data").fadeOut(100, "linear", callback = { (data: js.Any) =>
-      jQuery("#data").empty()
-      User.genUsers().foreach { u =>
-        jQuery("#data").append(userRow(u))
-      }
-      jQuery("#data").fadeIn(900) })
+    jQuery("#data").empty()
+    User.genUsers().foreach { u =>
+      jQuery("#data").append(userRow(u))
+    }
   }
 
   def addClickedMessage(): Unit = {
-//    jQuery("body").append("<p>You clicked the button.</p>")
     genTable()
   }
 
