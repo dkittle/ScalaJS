@@ -6,8 +6,6 @@ import org.scalajs.jquery.jQuery
 
 object Greeting extends JSApp {
 
-  val users = User.genUsers()
-
   def main(): Unit = {
     jQuery(setupUI _)
   }
@@ -19,14 +17,15 @@ object Greeting extends JSApp {
   }
 
   def genTable(): Unit = {
-//    jQuery("#data").empty()
-    users.foreach { u =>
+    jQuery("#data").empty()
+    User.genUsers().foreach { u =>
       jQuery("#data").append(userRow(u))
     }
   }
 
   def addClickedMessage(): Unit = {
     jQuery("body").append("<p>You clicked the button.</p>")
+    genTable()
   }
 
   def userRow(u: User) = {
@@ -48,11 +47,11 @@ object Greeting extends JSApp {
 case class User(firstname: String, lastname: String, salary: Double)
 
 object User {
-  val firstnames = List("Dan", "Bob", "Debbie", "Minnie", "Steve")
-  val lastnames = Random.shuffle(List("Smith","LeBeef","Archer","Mango","Dreth"))
 
   def genUsers() = {
-    for (i <- 0 to 4) yield User(firstnames(i), lastnames(i), (Random.nextInt(6) + 1) * 15000)
+    val firstnames = Random.shuffle(List("Dan", "Bob", "Debbie", "Minnie", "Steve", "Virindra"))
+    val lastnames = Random.shuffle(List("Smith","LeBeef","Archer","Mango","Dreth", "Seth"))
+    for (i <- 0 to 5) yield User(firstnames(i), lastnames(i), (Random.nextInt(6) + 1) * 15000)
   }
 
 }
