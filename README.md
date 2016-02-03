@@ -1,26 +1,22 @@
 # ScalaJS Test
 
-Running the app:
-
+## Starting SBT
+For dev:
 ````
-sbt
-````
-
-And for dev:
-````
-~fastOptJS
+sbt ~fastOptJS
 ````
 
 or for prod:
 ````
-fullOptJS
+sbt ~fullOptJS
 ````
 
-default to full with
+setup full in build.sbt with
 ````
 set scalaJSStage in Global := FullOptStage
 ````
-in build.sbt
+
+## Running the App
 
 Open ```testing.html``` in a browser
 
