@@ -17,6 +17,8 @@ object Greeting extends JSApp {
     jQuery("#click-me-button").click(addClickedMessage _)
   }
 
+  // I shouldn't couple the fading out/in of the refreshing component with
+  // the code that draws it.  This feels like a mix-in to me..
   def genTable(): Unit = {
     jQuery("#data").fadeOut(100, "linear", callback = { (data: js.Any) =>
       jQuery("#data").empty()
