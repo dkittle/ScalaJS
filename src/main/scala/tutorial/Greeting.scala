@@ -38,6 +38,7 @@ object Greeting extends JSApp {
 
   def genTable(): Unit = {
     jQuery("#data").empty()
+    jQuery("#data").append(headerRow())
     User.genUsers().foreach { u =>
       jQuery("#data").append(userRow(u))
     }
@@ -47,16 +48,32 @@ object Greeting extends JSApp {
     genTable()
   }
 
+  def headerRow() = {
+    val username = jQuery("<span></span>")
+      .text("Name")
+
+    val salary = jQuery("<span></span>")
+      .attr("style", "float: right")
+      .text("Salary")
+
+    jQuery("<li></li>")
+      .addClass("list-group-item")
+      .attr("style", "background-color: #3BAFDA; color: #ffffff; font-weight: bold;")
+      .append(username)
+      .append(salary)
+  }
+
   def userRow(u: User) = {
     val username = jQuery("<span></span>")
       .text(s"${u.lastname}, ${u.firstname}")
 
     val salary = jQuery("<span></span>")
-      .attr("style", "float: right; marginTop: -5")
+      .attr("style", "float: right;")
       .text("$" + u.salary)
 
     jQuery("<li></li>")
       .addClass("list-group-item")
+      .attr("style", "background-color: #f4f4f4;")
       .append(username)
       .append(salary)
   }
