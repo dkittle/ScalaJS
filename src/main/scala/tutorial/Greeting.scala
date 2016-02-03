@@ -3,7 +3,7 @@ package tutorial
 import scala.util.Random
 import scala.scalajs.js
 import scala.scalajs.js.JSApp
-import org.scalajs.jquery.jQuery
+import org.scalajs.jquery.{JQuery, jQuery}
 
 object Greeting extends JSApp {
 
