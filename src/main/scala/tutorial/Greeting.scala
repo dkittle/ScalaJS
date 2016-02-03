@@ -1,5 +1,6 @@
 package tutorial
 
+import scala.util.Random
 import scala.scalajs.js.JSApp
 import org.scalajs.jquery.jQuery
 
@@ -12,7 +13,7 @@ object Greeting extends JSApp {
   def genTable(): Unit = {
     jQuery("#data").empty()
     val names = Array("Dan", "Bob", "Debbie", "Minnie", "Steve")
-    val lastnames = scala.util.Random.shuffle(List("Smith","LeBeef","Archer","Mango","Dreth"))
+    val lastnames = Random.shuffle(List("Smith","LeBeef","Archer","Mango","Dreth"))
 
     (0 until 5).foreach { x =>
 
@@ -21,7 +22,7 @@ object Greeting extends JSApp {
 
       val salary = jQuery("<span></span>")
         .attr("style", "float: right; marginTop: -5")
-        .text("$" + ((scala.util.Random.nextInt(6) + 1) * 15000))
+        .text("$" + ((Random.nextInt(6) + 1) * 15000))
 
       val row = jQuery("<li></li>")
         .addClass("list-group-item")
