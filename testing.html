@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>The Greeting Tutorial</title>
+    <title>The Scala.js Tutorial</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
     <script type="text/javascript" src="./target/scala-2.11/scalajs-fastopt.js"></script>
@@ -10,11 +10,24 @@
     <script type="text/javascript">
         tutorial.Greeting().main();
     </script>
+    <style>
+        .floatright {
+            float: right;
+        }
+        .tablerow {
+            background-color: #f4f4f4;
+        }
+        .tableheader {
+            background-color: #3BAFDA;
+            color: #ffffff;
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body>
     <h1 id="greeting"></h1>
     <ul id="data" class="list-group" style="width: 300px;"></ul>
     <button id="click-me-button" type="button"
-        onclick="tutorial.Greeting().addClickedMessage()">Click me!</button>
+        onclick="tutorial.Greeting().regenerateEmployees()">Click Me!</button>
 </body>
 </html>
