@@ -14,7 +14,7 @@ object Greeting extends JSApp {
   def setupUI(): Unit = {
     jQuery("#greeting").append("Hello World")
     genTable()
-    jQuery("#click-me-button").click(addClickedMessage _)
+    jQuery("#click-me-button").click(regenerateEmployees _)
   }
 
   def genTable(): Unit = {
@@ -25,34 +25,36 @@ object Greeting extends JSApp {
     }
   }
 
-  def addClickedMessage(): Unit = {
+  def regenerateEmployees(): Unit = {
     genTable()
   }
 
+  val SPAN = "<span></span>"
+  val LIST_ITEM = "<li></li>"
+
   def headerRow() = {
-    val username = jQuery("<span></span>")
+    val username = jQuery(SPAN)
       .text("Name")
 
-    val salary = jQuery("<span></span>")
-      .attr("style", "float: right")
+    val salary = jQuery(SPAN)
+      .addClass("floatright")
       .text("Salary")
 
-    jQuery("<li></li>")
-      .addClass("list-group-item")
-      .attr("style", "background-color: #3BAFDA; color: #ffffff; font-weight: bold;")
+    jQuery(LIST_ITEM)
+      .addClass("list-group-item tableheader")
       .append(username)
       .append(salary)
   }
 
   def userRow(u: User) = {
-    val username = jQuery("<span></span>")
+    val username = jQuery(SPAN)
       .text(s"${u.lastname}, ${u.firstname}")
 
-    val salary = jQuery("<span></span>")
+    val salary = jQuery(SPAN)
       .attr("style", "float: right;")
       .text("$" + u.salary)
 
-    jQuery("<li></li>")
+    jQuery(LIST_ITEM)
       .addClass("list-group-item")
       .attr("style", "background-color: #f4f4f4;")
       .append(username)

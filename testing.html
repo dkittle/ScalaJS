@@ -10,11 +10,21 @@
     <script type="text/javascript">
         tutorial.Greeting().main();
     </script>
+    <style>
+        .floatright {
+            float: right;
+        }
+        .tableheader {
+            background-color: #3BAFDA;
+            color: #ffffff;
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body>
     <h1 id="greeting"></h1>
     <ul id="data" class="list-group" style="width: 300px;"></ul>
     <button id="click-me-button" type="button"
-        onclick="tutorial.Greeting().addClickedMessage()">Click me!</button>
+        onclick="tutorial.Greeting().regenerateEmployees()">Click Me!</button>
 </body>
 </html>
