@@ -30,15 +30,12 @@ object Greeting extends JSApp {
   }
 
   val SPAN = "<span></span>"
+  val SPAN_RIGHT = "<span class=\"floatright\"></span>"
   val LIST_ITEM = "<li></li>"
 
   def headerRow() = {
-    val username = jQuery(SPAN)
-      .text("Name")
-
-    val salary = jQuery(SPAN)
-      .addClass("floatright")
-      .text("Salary")
+    val username = jQuery(SPAN).text("Name")
+    val salary = jQuery(SPAN_RIGHT).text("Salary")
 
     jQuery(LIST_ITEM)
       .addClass("list-group-item tableheader")
@@ -47,16 +44,11 @@ object Greeting extends JSApp {
   }
 
   def userRow(u: User) = {
-    val username = jQuery(SPAN)
-      .text(s"${u.lastname}, ${u.firstname}")
-
-    val salary = jQuery(SPAN)
-      .attr("style", "float: right;")
-      .text("$" + u.salary)
+    val username = jQuery(SPAN).text(s"${u.lastname}, ${u.firstname}")
+    val salary = jQuery(SPAN_RIGHT).text("$" + u.salary)
 
     jQuery(LIST_ITEM)
-      .addClass("list-group-item")
-      .attr("style", "background-color: #f4f4f4;")
+      .addClass("list-group-item tablerow")
       .append(username)
       .append(salary)
   }
