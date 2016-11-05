@@ -1,12 +1,10 @@
 package tutorial
 
-import org.scalajs.dom.{Event, XMLHttpRequest}
-
-import scala.util.Random
-import scala.scalajs.js
-import scala.scalajs.js.{JSON, JSApp}
-import org.scalajs.jquery.{JQuery, jQuery}
+import org.scalajs.jquery.jQuery
 import tutorial.GreetingComponents._
+
+import scala.scalajs.js.JSApp
+import scala.util.Random
 
 object Greeting extends JSApp {
 
@@ -50,11 +48,12 @@ case class User(firstname: String, lastname: String, salary: Double)
 object User {
 
   def randomNameIndex = Random.nextInt(5) + 1
+
   def randomSalary = (Random.nextInt(8) + 1) * 15000
 
   def genUsers() = {
     val firstnames = Random.shuffle(List("Dan", "Bob", "Debbie", "Minnie", "Steve", "Virindra"))
-    val lastnames = Random.shuffle(List("Smith","LeBeef","Archer","Mango","Dreth", "Seth"))
+    val lastnames = Random.shuffle(List("Smith", "LeBeef", "Archer", "Mango", "Dreth", "Seth"))
     for (i <- 0 to 5) yield User(firstnames(randomNameIndex), lastnames(randomNameIndex), randomSalary)
   }
 
