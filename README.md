@@ -5,12 +5,12 @@
 ## Starting SBT
 For dev:
 ````
-sbt ~fastOptJS
+sbt ~run
 ````
 
 or for prod:
 ````
-sbt ~fullOptJS
+sbt ~run
 ````
 
 setup full in build.sbt with
@@ -20,7 +20,7 @@ set scalaJSStage in Global := FullOptStage
 
 ## Running the App
 
-Open ```testing.html``` in a browser
+Open ```http://localhost:9000``` in a browser
 
 
 ### Release Notes
