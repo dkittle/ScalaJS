@@ -29,7 +29,7 @@ object UserPage extends JSApp {
       }
       .recover {
         case e: Exception =>
-          dom.console.log(s"ERROR ------------- ${e.toString}")
+          displayError(e.toString)
       }
   }
 
