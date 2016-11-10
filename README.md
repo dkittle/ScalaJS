@@ -1,5 +1,7 @@
 # ScalaJS Test
 
+[![Build Status](https://travis-ci.org/dkittle/ScalaJS.svg?branch=master)](https://travis-ci.org/dkittle/ScalaJS)
+
 ## Starting SBT
 For dev:
 ````
