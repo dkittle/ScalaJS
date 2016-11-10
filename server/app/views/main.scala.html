@@ -1,0 +1,34 @@
+@(webJarAssets: WebJarAssets)(content: Html)
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>title</title>
+      <!-- link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css" -->
+      <link rel='stylesheet' href='@routes.WebJarAssets.at(webJarAssets.locate("css/bootstrap.min.css"))'>
+      <link rel="stylesheet" media="screen" href="@routes.Assets.versioned("stylesheets/main.css")">
+    <link rel="shortcut icon" type="image/png" href="@routes.Assets.versioned("images/favicon.png")">
+      <style>
+      .floatright {
+          float: right;
+      }
+      .tablerow {
+          background-color: #f4f4f4;
+      }
+      .tableheader {
+          background-color: #3BAFDA;
+          color: #ffffff;
+          font-weight: bold;
+      }
+          .usertable {
+              width: 300px;
+          }
+      </style>
+      @scalajs.html.scripts("client", routes.Assets.versioned(_).toString, name => getClass.getResource(s"/public/$name") != null)
+  </head>
+  <body>
+   @content
+  </body>
+</html>
