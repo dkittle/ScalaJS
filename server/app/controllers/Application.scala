@@ -2,13 +2,14 @@ package controllers
 
 import javax.inject.Inject
 
+import akka.actor.ActorSystem
 import play.api.mvc._
 import shared.User
-
-import scala.util.Random
 import upickle.default._
 
-class Application @Inject()(webJarAssets: WebJarAssets) extends Controller {
+import scala.util.Random
+
+class Application @Inject()(webJarAssets: WebJarAssets, system: ActorSystem) extends Controller {
 
   def index = Action {
     Ok(views.html.index(webJarAssets))

@@ -15,7 +15,7 @@ object UserPage extends JSApp {
   }
 
   def setupUI(): Unit = {
-    jQuery(Heading).append("Hello World")
+    jQuery(Heading).append("Users")
     regenerateEmployees()
     jQuery(Button).click(regenerateEmployees _)
   }

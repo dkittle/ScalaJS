@@ -26,6 +26,12 @@
       .errorwidth {
           width: 600px;
       }
+      .alertred {
+          color: #a94442;
+          font-size: 14px;
+
+          opacity: 0.5;
+      }
       </style>
       @scalajs.html.scripts("client", routes.Assets.versioned(_).toString, name => getClass.getResource(s"/public/$name") != null)
       <script src='@routes.WebJarAssets.at(webJarAssets.locate("js/bootstrap.min.js"))'></script>

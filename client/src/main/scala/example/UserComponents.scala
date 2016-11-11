@@ -46,10 +46,9 @@ object UserComponents {
   def displayError(message: String): Unit = {
     $(Error).empty()
     val redBox = $(DIV).addClass("alert alert-danger")
-    val close = $(A).addClass("close").attr("href", "#").attr("data-dismiss", "alert").text("X")
-    val error = $(STRONG).text("Error!")
+    val close = $(A).addClass("close glyphicon glyphicon-remove-circle alertred").attr("href", "#").attr("data-dismiss", "alert")
+    val error = $(STRONG).addClass("glyphicon glyphicon-exclamation-sign")
     redBox.append(close).append(error).append(s" $message")
     $(Error).append(redBox)
-//    $(Error).append(s"<div class=\"alert alert-danger\"><span class=\"close\" data-dismiss=\"alert\">&times;</span><strong>Error!</strong> $message</div>")
   }
 }
