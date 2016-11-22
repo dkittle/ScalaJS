@@ -1,6 +1,7 @@
 package example
 
 import org.scalajs.jquery.{jQuery => $}
+import scalatags.JsDom.all._
 import shared.User
 import upickle.default._
 
@@ -11,44 +12,40 @@ object UserComponents {
   val Data = "#data"
   val Error = "#errors"
 
-  val DIV = "<div />"
-  val STRONG = "<strong />"
-  val SPAN = "<span />"
-  val A = "<a />"
-  val SPAN_RIGHT = "<span class=\"floatright\" />"
-  val LIST_ITEM = "<li />"
-
   def headerRow() = {
-    $(LIST_ITEM)
-      .addClass("list-group-item tableheader")
-      .append($(SPAN).text("Name"))
-      .append($(SPAN_RIGHT).text("Salary"))
+    li(`class` := "list-group-item tableheader",
+      span("Name"),
+      span(`class` := "floatright", "Salary")
+    )
   }
 
   def userRow(u: User) = {
-    val username = $(SPAN).text(s"${u.lastname}, ${u.firstname}")
-    val salary = $(SPAN_RIGHT).text(s"$$${u.salary}")
+    li(`class` := "list-group-item tablerow",
+      span(s"${u.lastname}, ${u.firstname}"),
+      span(`class` := "floatright", s"$$${u.salary}")
+    )
 
-    $(LIST_ITEM)
-      .addClass("list-group-item tablerow")
-      .append(username)
-      .append(salary)
+
   }
 
   def displayUserTable(userJson: String): Unit = {
     $(Data).empty()
-    $(Data).append(headerRow())
+    $(Data).append(headerRow().toString())
     read[Seq[User]](userJson).map { u =>
-      $(Data).append(userRow(u))
+      $(Data).append(userRow(u).toString())
     }
+  }
+
+  def redBox(message: String) = {
+    div(`class` := "alert alert-danger",
+      a(`class` := "close glyphicon glyphicon-remove-circle alertred", href := "#", attr("data-dismiss") := "alert"),
+      strong(`class` := "glyphicon glyphicon-exclamation-sign"),
+      s" SNAP: $message"
+    )
   }
 
   def displayError(message: String): Unit = {
     $(Error).empty()
-    val redBox = $(DIV).addClass("alert alert-danger")
-    val close = $(A).addClass("close glyphicon glyphicon-remove-circle alertred").attr("href", "#").attr("data-dismiss", "alert")
-    val error = $(STRONG).addClass("glyphicon glyphicon-exclamation-sign")
-    redBox.append(close).append(error).append(s" $message")
-    $(Error).append(redBox)
+    $(Error).append(redBox(message).toString())
   }
 }
