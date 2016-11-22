@@ -1,0 +1,9 @@
+@(webJarAssets: WebJarAssets)
+
+@main(webJarAssets) {
+  <h1 id="Login"></h1>
+  <div id="errors" class="errorwidth"></div>
+  <label for="username">Username</label><input name="username" id="username" />
+  <label for="password">Username</label><input name="password" id="password" type="password" />
+  <button id="click-me-button" type="button" onclick="example.LoginPage().login()">login</button>
+}

@@ -1,11 +1,12 @@
 package example
 
 import org.scalajs.jquery.{jQuery => $}
-import scalatags.JsDom.all._
 import shared.User
 import upickle.default._
 
-object UserComponents {
+import scalatags.JsDom.all._
+
+object LoginComponents {
 
   val Heading = "#greeting"
   val Button = "#click-me-button"

@@ -5,7 +5,7 @@ version := "0.3"
 lazy val scalaV = "2.11.8"
 
 lazy val server = (project in file("server"))
-  .settings(
+.settings(
     scalaVersion := scalaV,
     scalaJSProjects := Seq(client),
     pipelineStages in Assets := Seq(scalaJSPipeline),
@@ -20,8 +20,8 @@ lazy val server = (project in file("server"))
       specs2 % Test
     )
   )
-  .enablePlugins(PlayScala)
-  .dependsOn(sharedJvm)
+.enablePlugins(PlayScala)
+.dependsOn(sharedJvm)
 
 lazy val client = (project in file("client"))
   .settings(
