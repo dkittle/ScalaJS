@@ -2,7 +2,7 @@ package example
 
 import example.UserComponents._
 import org.scalajs.dom
-import org.scalajs.jquery._
+import org.scalajs.jquery.{jQuery => $}
 
 import scala.concurrent.ExecutionContext.Implicits.global
 import scala.scalajs.js.JSApp
@@ -11,13 +11,13 @@ import scala.scalajs.js.annotation.JSExport
 object UserPage extends JSApp {
 
   def main(): Unit = {
-    jQuery(setupUI _)
+    $(setupUI _)
   }
 
   def setupUI(): Unit = {
-    jQuery(Heading).append("Users")
+    $(Heading).append("Users")
     regenerateEmployees()
-    jQuery(Button).click(regenerateEmployees _)
+    $(Button).click(regenerateEmployees _)
   }
 
   @JSExport

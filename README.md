@@ -52,3 +52,11 @@ Invetory management
 
 chapter 7
 Point of sale
+
+
+Reference sites
+[ScalaJS Intro](http://www.lihaoyi.com/hands-on-scala-js/)
+[Scala Tags](http://www.lihaoyi.com/scalatags/#Cross-backendCode)
+[Bootstrap Glyph Icons](http://getbootstrap.com/components/)
+[WebJars](http://www.webjars.org/)
+[Simple validation](https://stackoverflow.com/questions/37999422/scala-js-jquery-getting-the-text-from-a-html-input)

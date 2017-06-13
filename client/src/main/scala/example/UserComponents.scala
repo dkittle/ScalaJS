@@ -1,9 +1,13 @@
 package example
 
+import org.scalajs.dom.html.{Div, LI}
 import org.scalajs.jquery.{jQuery => $}
+
 import scalatags.JsDom.all._
 import shared.User
 import upickle.default._
+
+import scalatags.JsDom.TypedTag
 
 object UserComponents {
 
@@ -12,21 +16,21 @@ object UserComponents {
   val Data = "#data"
   val Error = "#errors"
 
-  def headerRow() = {
+  def headerRow(): TypedTag[LI] = {
     li(`class` := "list-group-item tableheader",
       span("Name"),
       span(`class` := "floatright", "Salary")
     )
   }
 
-  def userRow(u: User) = {
+  def userRow(u: User): TypedTag[LI] = {
     li(`class` := "list-group-item tablerow",
       span(s"${u.lastname}, ${u.firstname}"),
       span(`class` := "floatright", s"$$${u.salary}")
     )
   }
 
-  def redBox(message: String) = {
+  def redBox(message: String): TypedTag[Div] = {
     div(`class` := "alert alert-danger",
       a(`class` := "close glyphicon glyphicon-remove-circle alertred", href := "#", attr("data-dismiss") := "alert"),
       strong(`class` := "glyphicon glyphicon-exclamation-sign"),
